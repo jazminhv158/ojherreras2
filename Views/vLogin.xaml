@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ojherreras2.Views.vLogin"
+             Title="vLogin">
+    <VerticalStackLayout
+        Spacing="10"
+        Padding="10">
+        <Label 
+            Text="SEMANA 3"
+            TextColor="DarkBlue"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        
+        <!--IMAGEN INCIO-->
+
+        <Image
+            Source="logo.png"
+            WidthRequest="300">
+
+        </Image>
+
+        <Label
+            Text="Sistema de calificaciones Universidad Israel"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            TextColor="DarkBlue"
+            FontSize="20">
+
+        </Label>
+        <Label
+            Text="Iniciar Sesión"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill"
+            FontSize="12"
+            TextColor="DarkBlue">
+            
+        </Label>
+        <Label
+            Text="Por favor ingresa tu usuario y Contraseña."
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill"
+            FontSize="12"
+            TextColor="DarkBlue">
+            
+        </Label>
+        
+        <!--INGRESAR DATOS DE LOS USUARIOS-->
+        <Entry
+            x:Name="txtUsuario"
+            Placeholder="Ingresar Usuario"
+            Keyboard="Text"
+            TextColor="Gray"
+            PlaceholderColor="Gray">
+            
+        </Entry>
+        <Entry
+            x:Name="txtContrasena"
+            Placeholder="Ingrese la contraseña"
+            IsPassword="True"
+            TextColor="Gray"
+            PlaceholderColor="Gray">
+            
+        </Entry>
+        <Button
+            Text="Ingresar"
+            BackgroundColor="Blue"
+            TextColor="White"
+            Clicked="Button_Clicked">
+            
+        </Button>
+        
+        
+        
+        
+    </VerticalStackLayout>
+</ContentPage>

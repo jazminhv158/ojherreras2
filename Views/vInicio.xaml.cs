@@ -26,7 +26,7 @@ public partial class vInicio : ContentPage
             return;
         }
 
-        // 🔹 Validación de formato y rango
+        // VALIDACION FORMATO Y RANGO
         if (!ValidarNota(Seguimiento1.Text) ||
             !ValidarNota(Examen1.Text) ||
             !ValidarNota(Seguimiento2.Text) ||
@@ -36,18 +36,18 @@ public partial class vInicio : ContentPage
             return;
         }
 
-        // 🔹 Convertir a double
+        // CONVERTIR A DOUBLE
         double s1 = double.Parse(Seguimiento1.Text);
         double e1 = double.Parse(Examen1.Text);
         double s2 = double.Parse(Seguimiento2.Text);
         double e2 = double.Parse(Examen2.Text);
 
-        // 🔹 Cálculos
+        // CALCULO DE CALIFICACIONES
         double parcial1 = (s1 * 0.3) + (e1 * 0.2);
         double parcial2 = (s2 * 0.3) + (e2 * 0.2);
         double notaFinal = parcial1 + parcial2;
 
-        // 🔹 Determinar estado
+        // CALULAR ESTADO
         string estadoFinal;
         if (notaFinal >= 7)
             estadoFinal = "APROBADO";
@@ -56,13 +56,13 @@ public partial class vInicio : ContentPage
         else
             estadoFinal = "REPROBADO";
 
-        // 🔹 Mostrar resultados en etiquetas
+        // MOSTRAR RESULTADOS
         Parcial1.Text = parcial1.ToString("0.00");
         Parcial2.Text = parcial2.ToString("0.00");
         notafinal.Text = notaFinal.ToString("0.00");
         estado.Text = estadoFinal;
 
-        // 🔹 Mostrar DisplayAlert
+        // MOSTRAR ALERTA
         string mensaje =
             $"Estudiante: {PickerEstudiantes.SelectedItem}\n" +
             $"Fecha: {dfFecha.Date:dd/MM/yyyy}\n" +
@@ -73,20 +73,20 @@ public partial class vInicio : ContentPage
 
         await DisplayAlert("Resultados", mensaje, "OK");
 
-        // 🔹 Limpiar campos después del mensaje
+        // LIMPIAR CAMPOS
         LimpiarCampos();
     }
 
-    // 🔹 Validación personalizada
+    // VALIDACION DE DATOS
     private bool ValidarNota(string texto)
     {
-        if (texto.Length > 2) return false; // máximo 2 caracteres
-        if (!double.TryParse(texto, out double valor)) return false; // debe ser número
-        if (valor < 0 || valor > 10) return false; // rango válido
+        if (texto.Length > 2) return false; // MAX 2 CARACTERES
+        if (!double.TryParse(texto, out double valor)) return false; // VALIDAR DEBE SER NUMERO
+        if (valor < 0 || valor > 10) return false; // VALIDAR RANGO VALIDO
         return true;
     }
 
-    // 🔹 Limpiar todos los campos
+    // VALIDAR LOS CAMPOS
     private void LimpiarCampos()
     {
         Seguimiento1.Text = string.Empty;
