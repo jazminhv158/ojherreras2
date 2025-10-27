@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ojherreras2.Views.vInicio"
+             Title="vInicio">
+    <ScrollView>
+    <VerticalStackLayout
+        Padding="20"
+        Spacing="1">
+        
+        <!--TITULO-->
+        <Label 
+            Text="SEMANA 2"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            TextColor="DarkBlue">
+
+        </Label>
+        <Label
+            Text="SISTEMA DE CALIFICACIONES UNIVERSIDAD ISRAEL"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            TextColor="DarkBlue">
+            
+        </Label>
+
+            <Image
+                Source="logo.png"
+                WidthRequest="300">
+                
+            </Image>
+           
+        <BoxView HeightRequest="6"
+                 Color="#003366"
+                 HorizontalOptions="Fill"
+                 VerticalOptions="Start"
+                 Margin="0,5,0,15" >
+            </BoxView>
+        
+        <!--GRID-->
+
+            <Grid RowSpacing="20">
+                <!--FILAS-->
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <!--COLUMNAS-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    
+                </Grid.ColumnDefinitions>
+                
+                <!--ETIQUETAS-->
+
+                <Label Text="Estudiante" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="20"/>                
+                <Label Text="Seguimiento 1" Grid.Row="1" Grid.Column="0" FontAttributes="Bold" FontSize="15"/>
+                <Label Text="Examen 1" Grid.Row="2" Grid.Column="0" FontAttributes="Bold" FontSize="15"/>
+                <Label Text="Parcial 1" Grid.Row="3" Grid.Column="0" FontAttributes="Bold" FontSize="20"/>               
+                <Label Text="Seguimiento 2" Grid.Row="4" Grid.Column="0" FontAttributes="Bold" FontSize="15"/>
+                <Label Text="Examen 2" Grid.Row="5" Grid.Column="0" FontAttributes="Bold" FontSize="15"/>
+                <Label Text="Parcial 2" Grid.Row="6" Grid.Column="0" FontAttributes="Bold" FontSize="20"/>
+                <Label Text="Fecha" Grid.Row="7" Grid.Column="0" FontAttributes="Bold" FontSize="15" />
+                <Label Text="Nota Final" Grid.Row="8" Grid.Column="0" FontAttributes="Bold" FontSize="20"/>
+                <Label Text="Estado" Grid.Row="9" Grid.Column="0" FontAttributes="Bold" FontSize="20"/>
+                
+                <!--ESTUDIANTE-->
+
+                <Picker x:Name="PickerEstudiantes" 
+                        Title="Seleccione el estudiante"
+                        Grid.Row="0"
+                        Grid.Column="1" >
+
+                    <Picker.Items>
+                        <x:String>Jazmin Herrera</x:String>
+                        <x:String>Jose Arcos</x:String>
+                        <x:String>Anthony Quishpe</x:String>
+                        <x:String>Daysi Achig</x:String>
+                        <x:String>Pepito Perez</x:String>
+
+                    </Picker.Items>
+
+                </Picker>
+                
+                <!--INGRESO DE NOTAS PARCIAL 1-->
+
+                <StackLayout Grid.Row="1"
+                             Grid.Column="1">
+
+                    <Entry x:Name="Seguimiento1" 
+                           Placeholder="Seguimiento (o - 10)"
+                           Keyboard="Numeric" >
+                     </Entry>
+                        
+                </StackLayout>
+
+                <StackLayout Grid.Row="2"
+                             Grid.Column="1">
+
+                    <Entry x:Name="Examen1"
+                           Placeholder="Examen 1 (0 - 10)"
+                           Keyboard="Numeric">
+
+                    </Entry>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="3"
+                             Grid.Column="1">
+
+                    <Label x:Name="Parcial1"
+                           Text="Nota Parcial 1"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontSize="20">
+
+                    </Label>
+
+                </StackLayout>
+
+                <!--INGRESO DE NOTAS PARCIAL 2-->
+
+                    <StackLayout Grid.Row="4"
+                                 Grid.Column="1">
+
+                        <Entry x:Name="Seguimiento2" 
+                               Placeholder="Seguimiento (o - 10)"
+                               Keyboard="Numeric" >
+                        </Entry>
+
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="5"
+                                 Grid.Column="1">
+
+                        <Entry x:Name="Examen2"
+                               Placeholder="Examen 2 (0 - 10)"
+                               Keyboard="Numeric">
+
+                        </Entry>
+
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="6"
+                                 Grid.Column="1">
+
+                        <Label x:Name="Parcial2"
+                               Text="Nota Parcial 2"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               FontSize="20">
+
+                        </Label>
+
+                    <!--calendario-->
+                        
+                    <DatePicker x:Name="dfFecha" 
+                                Format="mm/dd/yyyy"
+                                Grid.Row="7"
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Fill">
+                        </DatePicker>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="8"
+                             Grid.Column="1">
+
+                    <Label x:Name="notafinal"
+                           Text="Nota final"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontSize="20">
+
+                    </Label>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="9"
+                             Grid.Column="1">
+
+                    <Label x:Name="estado"
+                           Text="Estado"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontSize="20">
+
+                    </Label>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="10"
+                             Grid.ColumnSpan="2"
+                             HorizontalOptions="Center">
+                    <Button Text="Aceptar"
+                            Clicked="Button_Clicked">
+                        
+                    </Button>
+                    
+                </StackLayout>
+            </Grid>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
