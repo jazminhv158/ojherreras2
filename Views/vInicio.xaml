@@ -6,7 +6,7 @@
     <ScrollView>
     <VerticalStackLayout
         Padding="20"
-        Spacing="1">
+        Spacing="10">
         
         <!--TITULO-->
         <Label 
@@ -16,6 +16,16 @@
             TextColor="DarkBlue">
 
         </Label>
+
+            <Label
+                x:Name="lblSaludo"
+                Text="Bienvenido"
+                FontSize="20"
+                HorizontalOptions="Center"
+                TextColor="DarkBlue">
+                
+                
+            </Label>
         <Label
             Text="SISTEMA DE CALIFICACIONES UNIVERSIDAD ISRAEL"
             VerticalOptions="Center"
@@ -42,6 +52,8 @@
             <Grid RowSpacing="20">
                 <!--FILAS-->
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -167,7 +179,7 @@
                     <DatePicker x:Name="dfFecha" 
                                 Format="mm/dd/yyyy"
                                 Grid.Row="7"
-                                Grid.Column="1"
+                                Grid.ColumnSpan="1"
                                 VerticalOptions="Center"
                                 HorizontalOptions="Fill">
                         </DatePicker>
@@ -201,13 +213,25 @@
                 </StackLayout>
 
                 <StackLayout Grid.Row="10"
-                             Grid.ColumnSpan="2"
-                             HorizontalOptions="Center">
+                             Grid.ColumnSpan="2">
+
                     <Button Text="Aceptar"
                             Clicked="Button_Clicked">
                         
                     </Button>
+                                      
                     
+                </StackLayout>
+
+                <StackLayout Grid.Row="12"
+                             Grid.ColumnSpan="2">
+
+
+                    <Button x:Name="btnCerrarSesion"
+                            Text="Cerrar Sesion"
+                            Clicked="btnCerrarSesion_Clicked">
+
+                    </Button>
                 </StackLayout>
             </Grid>
 

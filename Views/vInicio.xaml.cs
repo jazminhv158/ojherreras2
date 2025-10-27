@@ -2,10 +2,26 @@
 
 public partial class vInicio : ContentPage
 {
-	public vInicio()
+    //VARIABLES GLOBALES
+    string usuarioGlobal;
+    string contrasenaGlobal;
+
+    public vInicio()
 	{
 		InitializeComponent();
 	}
+
+    public vInicio(string usuario, string contrasena)
+    {
+        InitializeComponent();
+        usuarioGlobal = usuario;
+        contrasenaGlobal = contrasena;
+
+        lblSaludo.Text = $"Bienvenido {usuario}";
+        
+
+    }
+
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
@@ -101,4 +117,8 @@ public partial class vInicio : ContentPage
         dfFecha.Date = DateTime.Today;
     }
 
+    private void btnCerrarSesion_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new vLogin());
+    }
 }

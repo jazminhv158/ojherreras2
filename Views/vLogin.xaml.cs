@@ -1,49 +1,52 @@
-using System.Threading.Tasks;
-
-namespace ojherreras2.Views;
+﻿namespace ojherreras2.Views;
 
 public partial class vLogin : ContentPage
 {
-
-	private readonly Dictionary<string, string> usuariosValidos = new()
-	{
-		{"Carlos","carlos123" },
+    private readonly Dictionary<string, string> usuariosValidos = new()
+    {
+        {"Carlos","carlos123" },
         {"Ana","ana123" },
         {"Jose","jose123" }
     };
-	public vLogin()
-	{
-		InitializeComponent();
-	}
 
-    private async Task btnIngresar_Clicked(object sender, EventArgs e)
+    public vLogin()
+    {
+        InitializeComponent();
+    }
+
+    private async void btnIngresar_Clicked(object sender, EventArgs e)
     {
         try
         {
             string usuario = txtUsuario.Text?.Trim();
             string contrasena = txtContrasena.Text?.Trim();
 
+            // Validar campos vacíos
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contrasena))
             {
-                await DisplayAlert("Error", "Debe ingresar usuario y contrase�a correctos", "Ok");
+                await DisplayAlert("Error", "Debe ingresar usuario y contraseña", "OK");
                 return;
             }
 
-            if (usuariosValidos.TryGetValue(usuario, out string passwordcorrecto) && passwordcorrecto == contrasena)
+            // Validar usuario y contraseña correctos
+            if (usuariosValidos.TryGetValue(usuario, out string passwordCorrecto) && passwordCorrecto == contrasena)
             {
-                await DisplayAlert("Acceso concedido", $"Bienvenido {usuario}", "continuar");
-                await Navigation.PushAsync(new vInicio());
+                await DisplayAlert("Acceso concedido", $"Bienvenido {usuario}", "Continuar");
+                Navigation.PushAsync(new vInicio(usuario, contrasena));
+                
             }
             else
             {
-                await DisplayAlert("error", "Usuario o contrase�a incorrectos", "ok");
+                await DisplayAlert("Error", "Usuario o contraseña incorrectos", "OK");
+                
             }
         }
-
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
             Console.WriteLine($"Error en login: {ex.Message}");
-            await DisplayAlert("Error", "ocurrio un problema", "ok");
+           
         }
-
     }
+
+
 }
